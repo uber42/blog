@@ -9,7 +9,7 @@ var cookies = null
 
 
 function createWindow(){
-    let win = new BrowserWindow({width: 400, height: 300})
+    let win = new BrowserWindow({width: 400, height: 350})
 
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'start.html'),
@@ -59,7 +59,7 @@ module.exports.Cookies = () => {
         if(cookies){
             resolve(cookies)
         } else {
-            reject('Ошибка')
+            reject('Ошибка Cookies')
         }
     })
 }
@@ -73,7 +73,7 @@ module.exports.getJar = () => {
         if(j){
             resolve(j)
         } else {
-            reject('Нету jar')
+            reject('Ошибка JAR')
         }
     })
 }

@@ -45,7 +45,7 @@ module.exports.auth = function (userform, j) {
     });
 };
 
-function getPost(id, j) {
+module.exports.getPost = (id, j) => {
     return new Promise(function (resolve, reject) {
         request({
             method: 'GET',
@@ -62,10 +62,10 @@ function getPost(id, j) {
     });
 }
 
-function deletePost(cookies, options, j) {
+module.exports.deletePost = (cookies, id, j) => {
     request({
         method: 'DELETE',
-        url: http + 'api/article/delete/' + options.id,
+        url: http + 'api/article/delete/' + id,
         jar: j,
         headers: [{
             'set-cookie': cookies
@@ -78,7 +78,7 @@ function deletePost(cookies, options, j) {
     });
 }
 
-function updatePost(cookies, options, j) {
+module.exports.updatePost = (cookies, options, j) => {
     request({
         method: 'POST',
         url: http + 'api/article/update/' + options.id,
@@ -132,3 +132,18 @@ module.exports.getLastPost = function () {
         });
     });
 };
+
+module.exports.getUserData = function(id){
+    return new Promise(function (resolve, reject) {
+        request({
+            method: 'GET',
+            url: http + 'api/user/' + id,
+        }, function (error, response, body) {
+            if (error) {
+                reject(error);
+            } else {
+                resolve(body);
+            }
+        });
+    });
+}

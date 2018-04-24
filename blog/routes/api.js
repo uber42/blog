@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var middleware = require('../controllers/middleware');
 var articleControllers = require('../controllers/article');
+var userControllers = require('../controllers/user')
 
 router.get('/article/get/:id', async (req, res) => {
     if(req.params.id === 'all'){
@@ -51,6 +52,15 @@ router.delete('/article/delete/:id', middleware.isAuthAPI, middleware.AdminOrCre
 router.get('/profile',middleware.isAuthAPI, async (req, res) => {
     res.json(req.user);
 });
+
+router.get('/user/:id', async (req, res) => {
+    var user = await userControllers.findUserById(req);
+    if(user){
+        res.json(user)
+      } else {
+        res.send('Пользователя с таким ID нет');
+      }
+})
 
 router.get('/article/last', async (req, res) => {
     var result = await articleControllers.getLastPost()

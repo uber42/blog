@@ -1,3 +1,3 @@
 # blog
 
-Blog with desktop client.
+API Client for blog based on electron.js
