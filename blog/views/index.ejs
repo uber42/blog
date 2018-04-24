@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('head') %>
+    <%- include('layout') %>
+    <title><%= title %></title>
+</head>
+<body>
+    <% include ./panel %>
+    <% for(var i = 0;i < articles.length;i++) { %>
+        <% var article = articles[i]; %>
+        <% var user = article.user %>
+        <% include ./article-template.ejs %>
+    <% } %>
+    <div class="pages">
+        <% if(page[0] > 1) { %>
+            <a href="/<%= page[0]-1 %>" class="badge badge-info">Предыдущая</a>
+        <% } %>
+        <% if(page[1] > page[0]) { %>
+            <a href="/<%= page[0]+1 %>" class="badge badge-info">Следующая</a>
+        <% } %>
+    </div>
+    
+</body>
+</html>

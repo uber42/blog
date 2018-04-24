@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('head') %>
+    <%- include('layout') %>
+    <link rel="stylesheet" href="/stylesheets/create.css">
+    <title>Новая статья</title>
+</head>
+<body>
+    <%- include('panel') %>
+    
+    <form method="POST">
+        <% if (error) { %>
+          <div class="alert alert-danger" role="alert"> 
+            <%= error %> 
+          </div>
+        <% } %>
+        <div class="form-group">
+            <label for="aTitle">Название</label>
+            <input name="aTitle" type="text" class="form-control" id="aTitle" value="<%= article.title %>">
+        </div>
+        <div class="form-group">
+            <label for="desc">Описание</label>
+            <textarea name="description" class="form-control" id="desc" rows="3"><%= article.description %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="content">Статья</label>
+            <textarea name="text" class="form-control" id="content" rows="3"><%= article.text %></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary"><%= button %></button>
+        </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div class = "links">
+    <a href="/1" class="badge badge-success">На главную</a>
+</div>
+
+<% if(!isAuth){ %>
+    <div class = "auth-panel">
+        <a href="/register" class="badge badge-primary">Регистрация</a>
+        <a href="/auth" class="badge badge-secondary">Авторизация</a>
+    </div>
+    <% } else { %>
+    <div class = "links">
+        <a href="/post/new" class="badge badge-light">Создать статью</a>
+    </div>
+    <div class = "signout-panel">
+        <% if(name) { %>
+        <a href="/profile/<%= curUserId || id %>" class="badge badge-secondary"><%= name %></a>
+        <a href="/signout" class="badge badge-primary">Выйти</a>
+        <% } %>
+    </div>
+<% } %>

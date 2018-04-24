@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('head') %>
+    <%- include('layout') %>
+    <title><%= article.title %></title>
+</head>
+<body>
+    <% include ./panel.ejs %>
+    <% var user = article.user; %>
+    <% include ./article-template.ejs %>
+</body>
+</html>

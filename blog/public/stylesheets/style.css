@@ -1,0 +1,49 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.auth-panel {
+  font-size: 18px;
+  margin-top: 3px;
+  margin-left: 84%;
+}
+
+.signout-panel {
+  text-align: right;
+  font-size: 18px;
+  margin-top: 3px;
+  margin-right: 1%;
+}
+
+.links {
+  font-size: 18px;
+  margin-left: 1%;
+  float: left;
+}
+
+body {
+  background-color: skyblue;
+}
+
+.jumbotron {
+  width: 70%;
+  margin-left: 15%;
+  margin-top: 2%;
+  background-color: seashell;
+}
+
+.controls {
+  text-align: right;
+  margin-left: 80%; 
+}
+
+.alert.alert-danger {
+  width: 50%;
+  margin-left: 26%;
+  margin-top: 1%;
+}
+
+.pages {
+  margin-left: 45%;
+  margin-bottom: 1%;
+}

@@ -1,0 +1,19 @@
+<div class="jumbotron">
+    <h1 class="display-4"><%- article.title %></h1><hr>
+    <p class="lead"><%- article.description %></p>
+    <p class="lead"><%- article.text %></p>
+    <hr class="my-4">
+    <p>Автор: <a href="/profile/<%=user.id%>"><%= user.name %></a></p>
+    <p>Дата: <%= article.updatedAt %></p>
+    <p class="lead">
+        <% if(main) { %>
+            <a class="btn btn-primary btn-lg" href="/post/<%= article.id %>" role="button">Подробнее</a>
+        <% } %>
+        <% if(user.admin || user.id === curUserId){ %>
+            <div align="right">
+                <a href="/post/<%= article.id %>/edit" align="right" class="badge badge-danger" float="left">Редактировать</a>
+                <a href="/post/<%= article.id %>/delete" align="right" class="badge badge-warning" float="left">Удалить</a>
+            </div>
+        <% } %>
+    </p>
+</div>
