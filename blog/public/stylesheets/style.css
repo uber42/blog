@@ -22,14 +22,14 @@ body {
 }
 
 body {
-  background-color: skyblue;
+  background-color: gainsboro;
 }
 
 .jumbotron {
-  width: 70%;
-  margin-left: 15%;
+  width: 50%;
+  margin-left: 25%;
   margin-top: 2%;
-  background-color: seashell;
+  background-color: whitesmoke;
 }
 
 .controls {
@@ -43,7 +43,7 @@ body {
   margin-top: 1%;
 }
 
-.pages {
-  margin-left: 45%;
+.pagination {
+  margin-left: 47.5%;
   margin-bottom: 1%;
 }

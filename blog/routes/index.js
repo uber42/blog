@@ -9,7 +9,7 @@ router.get('/:id', async (req, res) => {
   var pageAmount = Math.ceil(await article.count() / 10);
   if(req.params.id <= pageAmount || pageAmount === 0){
     await res.render('index', { 
-      title: 'Какой-то блог', 
+      title: 'Какой-то сайт', 
       isAuth : isAuth, 
       page : [Number(req.params.id), pageAmount], 
       name : (isAuth) ? req.user.name : null,

@@ -71,4 +71,12 @@ router.get('/article/last', async (req, res) => {
     }
 })
 
+router.get('/cookies',  (req, res) => {
+    var result = {}
+    result.cookies = req.cookies
+    result.session = req.session
+    res.json(result)
+})
+
+
 module.exports = router;

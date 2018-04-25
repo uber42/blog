@@ -1,20 +1,40 @@
-<div class = "links">
-    <a href="/1" class="badge badge-success">На главную</a>
-</div>
-
-<% if(!isAuth){ %>
-    <div class = "auth-panel">
-        <a href="/register" class="badge badge-primary">Регистрация</a>
-        <a href="/auth" class="badge badge-secondary">Авторизация</a>
-    </div>
-    <% } else { %>
-    <div class = "links">
-        <a href="/post/new" class="badge badge-light">Создать статью</a>
-    </div>
-    <div class = "signout-panel">
-        <% if(name) { %>
-        <a href="/profile/<%= curUserId || id %>" class="badge badge-secondary"><%= name %></a>
-        <a href="/signout" class="badge badge-primary">Выйти</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Какой-то сайт</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">На главную</a>
+        </li>
+        <% if(isAuth){ %>
+        <li class="nav-item">
+          <a class="nav-link" href="/post/new">Создать статью</a>
+        </li>
         <% } %>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                    <% if(!isAuth) { %>
+                      <li class="nav-item">
+                            <a class="nav-link" href="/register">Регистрация</a>
+                      </li>
+                      <li class="nav-item">
+                            <a class="nav-link" href="/auth">Авторизация</a>
+                      </li>
+                    <% } else { %>
+                      <li class="nav-item">
+                            <a class="nav-link" href="/profile/<%= curUserId || id %>"><%= name %></a>
+                      </li>
+                      <li class="nav-item">
+                            <a class="nav-link" href="/signout">Выйти</a>
+                      </li>
+                    <% } %>
+                    </ul>
+            </div>
+      </form>
     </div>
-<% } %>
+  </nav>

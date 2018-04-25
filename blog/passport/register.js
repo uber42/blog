@@ -12,7 +12,7 @@ module.exports = function (passport) {
     async function(req, email, password, done) {
       const schema = Joi.object().keys({
         email: Joi.string().email(),
-        password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
+        password: Joi.string().regex(/^[a-zA-Z0-9]{6,30}$/),
         name: Joi.string().min(4).max(35)
       });
 

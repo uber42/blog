@@ -13,22 +13,36 @@
     <% } %>
     <% include ./panel.ejs %>
     
-    <div class="card border-info mb-3" style="max-width: 50rem;">
-        <div class="card-header" align="center">Профиль пользователя</div>
-         <div class="card-body text-info">
-            <h5 class="card-title">ID: <%= user.id %></h5>
-            <p class="card-text">username:      <%= user.name %></p>
-            <p class="card-text">email:    <%= user.email %></p>
-            <hr>
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4" align="center"><%= user.name %></h1>
+        <hr>
+            <p class="lead">ИД: <%= user.id %></p>
+            <p class="lead">Почта: <%= user.email %></p>
             <% var articles = user.articles %>
             <% if(articles.length !== 0){ %>
-                <h5 class="card-title">Статьи</h5>
-                
+                <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th>ID</th>
+                            <th>Название</th>
+                            <th>Дата создания</th>
+                          </tr>
+                        </thead>
+                        <tbody>
                 <% for(var i = 0; i < articles.length; i++) { %>
-                    <p><a href="../post/<%= articles[i].id %>" class="card-text"><%= articles[i].title %></a></p>
+                            <tr>
+                                <th scope="row"><%= articles[i].id %></th>
+                                <td><a href="../post/<%= articles[i].id %>"><%= articles[i].title %></a></td>
+                                <td><%= articles[i].createdAt %></td>
+                            </tr>
                 <% } %>
             <% } %>
-        </div>
+                        </tbody>
+                </table>
+    </div>
+    </div>
+    </div>
     </div>
 </body>
 </html>

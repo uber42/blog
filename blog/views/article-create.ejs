@@ -8,13 +8,14 @@
 </head>
 <body>
     <%- include('panel') %>
-    
+    <% if (error != "") { %>
+        <div class="alert alert-danger" role="alert">
+          <%= error %> 
+        </div>
+    <% } %>
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
     <form method="POST">
-        <% if (error) { %>
-          <div class="alert alert-danger" role="alert"> 
-            <%= error %> 
-          </div>
-        <% } %>
         <div class="form-group">
             <label for="aTitle">Название</label>
             <input name="aTitle" type="text" class="form-control" id="aTitle" value="<%= article.title %>">
@@ -30,6 +31,8 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary"><%= button %></button>
         </div>
+    </form>
+    </div>
 </form>
 </body>
 </html>

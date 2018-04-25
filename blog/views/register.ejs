@@ -7,32 +7,33 @@
     <title>Регистрация</title>
 </head>
 <body>
-    <% if (error) { %>
+    <% if (error != "") { %>
       <div class="alert alert-danger" role="alert"> 
         <%= error %> 
       </div>
     <% } %>
+  <div class="jumbotron">
   <form method="POST">
     <div class="form-row">
-      <div class="form-group">
+      <div class="form-group col-md-12">
         <label for="inputEmail4">Email</label>
         <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
       </div>
-      <br>
       <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password">
+        <label for="inputPassword4">Пароль</label>
+        <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Пароль">
       </div>
       <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" name="password_confirmation" class="form-control" id="inputPassword4" placeholder="Confirm Password">
+        <label for="inputPassword4">Повторите пароль</label>
+        <input type="password" name="password_confirmation" class="form-control" id="inputPassword4" placeholder="Повторите пароль">
       </div>
     </div>
     <div class="form-group">
-      <label for="inputAddress">Name</label>
-      <input type="text" name="name" class="form-control" id="inputAddress" placeholder="First Name">
+      <label for="inputAddress">Имя</label>
+      <input type="text" name="name" class="form-control" id="inputAddress" placeholder="Имя">
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
   </form>
+</div>
 </body>
 </html>

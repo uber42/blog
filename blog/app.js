@@ -56,7 +56,7 @@ app.use('/auth', auth);
 app.use('/signout', signout);
 app.use('/profile', profile);
 app.use('/post', articles);
-app.use('/api', api)
+app.use('/api', api);
 app.use('/', routes);
 
 require("./passport/register")(passport);

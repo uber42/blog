@@ -9,16 +9,15 @@ var cookies = null
 
 
 function createWindow(){
-    let win = new BrowserWindow({width: 400, height: 350})
+    let win = new BrowserWindow({width: 400, height: 300})
 
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'start.html'),
+        pathname: path.join(__dirname, 'auth.html'),
         protocol: 'file:',
         slashes: true
     }))
 
     win.setMenu(null)
-    win.webContents.openDevTools()
 
     win.on('closed', () => {
         win = null
@@ -47,7 +46,6 @@ module.exports.openWindow = () => {
         slashes: true
     }))
     win.setMenu(null)
-    win.webContents.openDevTools()
 }
 
 module.exports.setCookies = (cookie) => {
