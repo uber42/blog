@@ -2,7 +2,7 @@ const {app, BrowserWindow} = require('electron')
 var request = require('request')
 var url = require('url')
 var path = require('path')
-var API = require('./api')
+var API = require('./js/api')
 
 var j = request.jar();
 var cookies = null
@@ -12,13 +12,13 @@ function createWindow(){
     let win = new BrowserWindow({width: 400, height: 300})
 
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'auth.html'),
+        pathname: path.join(__dirname, 'html', 'auth.html'),
         protocol: 'file:',
         slashes: true
     }))
 
     win.setMenu(null)
-
+    win.webContents.openDevTools()
     win.on('closed', () => {
         win = null
     })
@@ -41,10 +41,11 @@ app.on('activate', () => {
 module.exports.openWindow = () => {
     let win = new BrowserWindow({width: 800, height: 600})
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'home.html'),
+        pathname: path.join(__dirname, 'html', 'home.html'),
         protocol: 'file:',
         slashes: true
     }))
+    win.webContents.openDevTools()
     win.setMenu(null)
 }
 
