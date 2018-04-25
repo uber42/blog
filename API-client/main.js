@@ -18,7 +18,7 @@ function createWindow(){
     }))
 
     win.setMenu(null)
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
     win.on('closed', () => {
         win = null
     })
@@ -45,7 +45,7 @@ module.exports.openWindow = () => {
         protocol: 'file:',
         slashes: true
     }))
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
     win.setMenu(null)
 }
 
